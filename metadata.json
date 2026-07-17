@@ -1,0 +1,6 @@
+{
+  "name": "OpenLabs Student Attendance Management System",
+  "description": "A modern, responsive, and secure Student Attendance Management System for OpenLabs Ghana featuring role-based dashboards, QR-code session generation, automatic attendance scanning, and visual analytics.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
