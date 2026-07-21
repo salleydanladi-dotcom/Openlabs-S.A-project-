@@ -1218,6 +1218,17 @@ app.get('/api/stats', (req, res) => {
   });
 });
 
+// Catch-all API 404 handler to prevent unhandled API routes from returning HTML
+app.all('/api/*', (req, res) => {
+  res.status(404).json({ error: `API endpoint not found: ${req.method} ${req.url}` });
+});
+
+// Global Error Handler Middleware to prevent returning HTML on server crashes
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.error('Unhandled Exception:', err);
+  res.status(500).json({ error: err?.message || 'An unexpected server error occurred.' });
+});
+
 // Vite Integration
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {

@@ -3,6 +3,7 @@ import LandingPage from './components/LandingPage';
 import AdminDashboard from './components/AdminDashboard';
 import LecturerDashboard from './components/LecturerDashboard';
 import StudentDashboard from './components/StudentDashboard';
+import SupportWidget from './components/SupportWidget';
 
 export default function App() {
   const [user, setUser] = useState<any | null>(null);
@@ -87,40 +88,54 @@ export default function App() {
 
   // Auth Routing
   if (!user) {
-    return <LandingPage onLoginSuccess={handleLoginSuccess} />;
+    return (
+      <>
+        <LandingPage onLoginSuccess={handleLoginSuccess} />
+        <SupportWidget user={null} profile={null} />
+      </>
+    );
   }
 
   // Role routing
   if (user.role === 'admin') {
     return (
-      <AdminDashboard 
-        user={user} 
-        onLogout={handleLogout} 
-        stats={stats} 
-        setStats={setStats} 
-      />
+      <>
+        <AdminDashboard 
+          user={user} 
+          onLogout={handleLogout} 
+          stats={stats} 
+          setStats={setStats} 
+        />
+        <SupportWidget user={user} profile={null} />
+      </>
     );
   }
 
   if (user.role === 'lecturer') {
     return (
-      <LecturerDashboard 
-        user={user} 
-        profile={profile} 
-        onLogout={handleLogout} 
-        onProfileUpdate={handleProfileUpdate} 
-      />
+      <>
+        <LecturerDashboard 
+          user={user} 
+          profile={profile} 
+          onLogout={handleLogout} 
+          onProfileUpdate={handleProfileUpdate} 
+        />
+        <SupportWidget user={user} profile={profile} />
+      </>
     );
   }
 
   if (user.role === 'student') {
     return (
-      <StudentDashboard 
-        user={user} 
-        profile={profile} 
-        onLogout={handleLogout} 
-        onProfileUpdate={handleProfileUpdate} 
-      />
+      <>
+        <StudentDashboard 
+          user={user} 
+          profile={profile} 
+          onLogout={handleLogout} 
+          onProfileUpdate={handleProfileUpdate} 
+        />
+        <SupportWidget user={user} profile={profile} />
+      </>
     );
   }
 

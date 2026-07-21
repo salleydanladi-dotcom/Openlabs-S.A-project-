@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   BookOpen, Users, QrCode, ClipboardCheck, ArrowRight, RefreshCw, Edit, Save, 
   Trash2, ShieldCheck, CheckCircle2, AlertCircle, Plus, Check, Clock, UserCheck, Phone, Mail, Award,
-  Camera
+  Camera, HelpCircle
 } from 'lucide-react';
 import { OpenLabsLogo } from './LandingPage';
 import { PRESET_AVATARS, optimizeImage } from '../utils/avatars';
@@ -339,6 +339,18 @@ export default function LecturerDashboard({ user, profile, onLogout, onProfileUp
           >
             <Users size={18} />
             Faculty Profile
+          </button>
+
+          <button
+            onClick={() => {
+              const el = document.getElementById('floating-support-btn');
+              if (el) el.click();
+            }}
+            type="button"
+            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold tracking-tight text-gray-400 hover:text-white hover:bg-slate-800 transition-all text-left"
+          >
+            <HelpCircle size={18} className="text-[#FF7A00]" />
+            Help &amp; Feedback Support
           </button>
         </nav>
 

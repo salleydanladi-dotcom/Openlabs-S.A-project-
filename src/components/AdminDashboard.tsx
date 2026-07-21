@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Users, Briefcase, BookOpen, Calendar, TrendingUp, Search, Plus, Edit2, Trash2, 
-  Download, Moon, Sun, LogOut, ChevronRight, CheckCircle2, AlertCircle, X, Shield, Filter, Award, Bell
+  Download, Moon, Sun, LogOut, ChevronRight, CheckCircle2, AlertCircle, X, Shield, Filter, Award, Bell,
+  HelpCircle
 } from 'lucide-react';
 import { OpenLabsLogo } from './LandingPage';
 
@@ -391,6 +392,18 @@ export default function AdminDashboard({ user, onLogout, stats, setStats }: Admi
           >
             <Calendar size={18} />
             Generate Reports
+          </button>
+
+          <button
+            onClick={() => {
+              const el = document.getElementById('floating-support-btn');
+              if (el) el.click();
+            }}
+            type="button"
+            className="w-full flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-bold tracking-tight text-gray-400 hover:text-white hover:bg-slate-800 transition-all text-left"
+          >
+            <HelpCircle size={18} className="text-[#FF7A00]" />
+            Help &amp; Feedback Support
           </button>
         </nav>
 

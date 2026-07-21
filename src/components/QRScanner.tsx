@@ -300,25 +300,29 @@ export default function QRScanner({ onScanSuccess, onScanFailure, isLoading }: Q
                 </div>
               </div>
             ) : (
-              <div className="relative w-64 h-64 bg-slate-950 rounded-2xl border-4 border-slate-900 flex flex-col items-center justify-center overflow-hidden shadow-2xl group">
+              <div 
+                onClick={() => setCameraInitiated(false)}
+                className="relative w-64 h-64 bg-slate-950 rounded-2xl border-4 border-slate-900 flex flex-col items-center justify-center overflow-hidden shadow-2xl group cursor-pointer transition-all duration-300 hover:border-red-500/80"
+                title="Tap anywhere to stop camera scanner"
+              >
                 {/* Real Live Video Feed */}
                 <video
                   ref={videoRef}
-                  className="absolute inset-0 w-full h-full object-cover scale-x-100"
+                  className="absolute inset-0 w-full h-full object-cover scale-x-100 pointer-events-none"
                   muted
                   playsInline
                   autoPlay
                 />
 
                 {/* Corner Viewfinder Indicators */}
-                <div className="absolute top-4 left-4 w-6 h-6 border-t-4 border-l-4 border-orange-500 rounded-tl z-10"></div>
-                <div className="absolute top-4 right-4 w-6 h-6 border-t-4 border-r-4 border-orange-500 rounded-tr z-10"></div>
-                <div className="absolute bottom-4 left-4 w-6 h-6 border-b-4 border-l-4 border-orange-500 rounded-bl z-10"></div>
-                <div className="absolute bottom-4 right-4 w-6 h-6 border-b-4 border-r-4 border-orange-500 rounded-br z-10"></div>
+                <div className="absolute top-4 left-4 w-6 h-6 border-t-4 border-l-4 border-orange-500 rounded-tl z-10 group-hover:border-red-500 transition-colors"></div>
+                <div className="absolute top-4 right-4 w-6 h-6 border-t-4 border-r-4 border-orange-500 rounded-tr z-10 group-hover:border-red-500 transition-colors"></div>
+                <div className="absolute bottom-4 left-4 w-6 h-6 border-b-4 border-l-4 border-orange-500 rounded-bl z-10 group-hover:border-red-500 transition-colors"></div>
+                <div className="absolute bottom-4 right-4 w-6 h-6 border-b-4 border-r-4 border-orange-500 rounded-br z-10 group-hover:border-red-500 transition-colors"></div>
 
                 {/* Laser Line Sweeper */}
                 <motion.div
-                  className="absolute left-0 right-0 h-1 bg-orange-500 shadow-[0_0_15px_#f97316] z-10"
+                  className="absolute left-0 right-0 h-1 bg-orange-500 shadow-[0_0_15px_#f97316] z-10 group-hover:bg-red-500 group-hover:shadow-[0_0_15px_#ef4444] transition-all"
                   initial={{ top: '10%' }}
                   animate={{ top: '90%' }}
                   transition={{
@@ -330,19 +334,33 @@ export default function QRScanner({ onScanSuccess, onScanFailure, isLoading }: Q
                 />
 
                 {/* Semi-transparent Backdrop with central scan cutout */}
-                <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+                <div className="absolute inset-0 bg-black/20 pointer-events-none group-hover:bg-black/50 transition-colors duration-300 z-10" />
+
+                {/* Interactive Stop Overlay on Hover */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 bg-black/30 backdrop-blur-[1px]">
+                  <div className="p-2.5 bg-red-600 text-white rounded-full shadow-lg shadow-red-600/30 animate-pulse">
+                    <VideoOff size={20} />
+                  </div>
+                  <span className="text-[11px] text-white font-black tracking-wider uppercase bg-black/60 px-3 py-1 rounded-full border border-white/10">
+                    Tap to Stop
+                  </span>
+                </div>
 
                 {/* Loading state indicator */}
                 {isLoading && (
-                  <div className="absolute inset-0 bg-black/75 flex flex-col items-center justify-center gap-2.5 z-20">
+                  <div className="absolute inset-0 bg-black/75 flex flex-col items-center justify-center gap-2.5 z-25" onClick={(e) => e.stopPropagation()}>
                     <RefreshCw className="animate-spin text-orange-500" size={32} />
                     <span className="text-xs text-white font-bold tracking-tight">Validating QR Ticket...</span>
                   </div>
                 )}
 
                 {/* Floating Status Badge */}
-                <span className="absolute bottom-4 text-[9px] text-white/90 font-mono font-bold tracking-widest uppercase bg-black/60 px-3 py-1 rounded-full backdrop-blur-md z-10">
+                <span className="absolute bottom-4 text-[9px] text-white/90 font-mono font-bold tracking-widest uppercase bg-black/60 px-3 py-1 rounded-full backdrop-blur-md z-10 group-hover:hidden">
                   {isLoading ? 'Processing...' : 'Live Scanner Active'}
+                </span>
+
+                <span className="absolute bottom-4 text-[9px] text-red-200 font-mono font-bold tracking-widest uppercase bg-red-950/80 px-3 py-1 rounded-full backdrop-blur-md border border-red-500/30 z-10 hidden group-hover:inline-block">
+                  Click to stop camera
                 </span>
               </div>
             )}

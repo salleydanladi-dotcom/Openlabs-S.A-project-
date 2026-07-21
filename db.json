@@ -1,0 +1,394 @@
+{
+  "users": [
+    {
+      "id": "admin-user",
+      "email": "admin@openlabs.edu.gh",
+      "password": "749f09bade8aca755660eeb17792da880218d4fbdc4e25fbec279d7fe9f65d70",
+      "name": "OpenLabs Administrator",
+      "role": "admin",
+      "profileImage": "",
+      "createdAt": "2026-07-21T01:12:33.631Z"
+    },
+    {
+      "id": "lecturer-user-1",
+      "email": "lecturer@openlabs.edu.gh",
+      "password": "5318a3db2faef756667838ba6a39ec0ff9e6a6824a361e65e174bb0d214d43b9",
+      "name": "Dr. Kojo Mensah",
+      "role": "lecturer",
+      "profileImage": "",
+      "createdAt": "2026-07-21T01:12:33.631Z"
+    },
+    {
+      "id": "lecturer-user-2",
+      "email": "sarah@openlabs.edu.gh",
+      "password": "5318a3db2faef756667838ba6a39ec0ff9e6a6824a361e65e174bb0d214d43b9",
+      "name": "Mrs. Sarah Taylor",
+      "role": "lecturer",
+      "profileImage": "",
+      "createdAt": "2026-07-21T01:12:33.631Z"
+    },
+    {
+      "id": "student-user-1",
+      "email": "student@openlabs.edu.gh",
+      "password": "68eaeeaef51a40035b5d3705c4e0ffd68036b6b821361765145f410b0f996e11",
+      "name": "Abena Osei",
+      "role": "student",
+      "profileImage": "",
+      "createdAt": "2026-07-21T01:12:33.631Z",
+      "lastLogin": "2026-07-21T01:38:35.614Z"
+    },
+    {
+      "id": "student-user-2",
+      "email": "kwame@openlabs.edu.gh",
+      "password": "68eaeeaef51a40035b5d3705c4e0ffd68036b6b821361765145f410b0f996e11",
+      "name": "Kwame Boateng",
+      "role": "student",
+      "profileImage": "",
+      "createdAt": "2026-07-21T01:12:33.632Z"
+    },
+    {
+      "id": "student-user-3",
+      "email": "esi@openlabs.edu.gh",
+      "password": "68eaeeaef51a40035b5d3705c4e0ffd68036b6b821361765145f410b0f996e11",
+      "name": "Esi Ankrah",
+      "role": "student",
+      "profileImage": "",
+      "createdAt": "2026-07-21T01:12:33.632Z"
+    }
+  ],
+  "students": [
+    {
+      "id": "student-1",
+      "userId": "student-user-1",
+      "studentId": "OL-2026-001",
+      "name": "Abena Osei",
+      "email": "student@openlabs.edu.gh",
+      "department": "Software Development",
+      "phone": "+233 55 987 6543",
+      "registeredCourses": [
+        "course-1",
+        "course-2",
+        "course-3"
+      ],
+      "attendanceStats": {
+        "total": 10,
+        "present": 8,
+        "late": 1,
+        "absent": 1,
+        "excused": 0
+      }
+    },
+    {
+      "id": "student-2",
+      "userId": "student-user-2",
+      "studentId": "OL-2026-002",
+      "name": "Kwame Boateng",
+      "email": "kwame@openlabs.edu.gh",
+      "department": "Network Engineering",
+      "phone": "+233 24 999 1111",
+      "registeredCourses": [
+        "course-2",
+        "course-3"
+      ],
+      "attendanceStats": {
+        "total": 8,
+        "present": 5,
+        "late": 2,
+        "absent": 1,
+        "excused": 0
+      }
+    },
+    {
+      "id": "student-3",
+      "userId": "student-user-3",
+      "studentId": "OL-2026-003",
+      "name": "Esi Ankrah",
+      "email": "esi@openlabs.edu.gh",
+      "department": "Data Science",
+      "phone": "+233 20 888 2222",
+      "registeredCourses": [
+        "course-1",
+        "course-3"
+      ],
+      "attendanceStats": {
+        "total": 8,
+        "present": 7,
+        "late": 0,
+        "absent": 0,
+        "excused": 1
+      }
+    }
+  ],
+  "lecturers": [
+    {
+      "id": "lecturer-1",
+      "userId": "lecturer-user-1",
+      "name": "Dr. Kojo Mensah",
+      "email": "lecturer@openlabs.edu.gh",
+      "department": "Software Development",
+      "phone": "+233 24 123 4567",
+      "assignedCourses": [
+        "course-1",
+        "course-2"
+      ]
+    },
+    {
+      "id": "lecturer-2",
+      "userId": "lecturer-user-2",
+      "name": "Mrs. Sarah Taylor",
+      "email": "sarah@openlabs.edu.gh",
+      "department": "Data Science",
+      "phone": "+233 20 444 5555",
+      "assignedCourses": [
+        "course-3"
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": "course-1",
+      "code": "OL-SD304",
+      "title": "Advanced React & Node.js Development",
+      "description": "Full-stack application architectural design with emphasis on state synchronization and containerized deployment.",
+      "creditHours": 3,
+      "department": "Software Development",
+      "lecturerId": "lecturer-1"
+    },
+    {
+      "id": "course-2",
+      "code": "OL-NE201",
+      "title": "Network Security & Administration",
+      "description": "Understanding cryptography, firewall setups, and scanning protocols for enterprise network environments.",
+      "creditHours": 4,
+      "department": "Network Engineering",
+      "lecturerId": "lecturer-1"
+    },
+    {
+      "id": "course-3",
+      "code": "OL-DS102",
+      "title": "Data Analytics with Python",
+      "description": "Statistical modeling, visualization, and algorithmic processing of structured databases using NumPy, Pandas, and Matplotlib.",
+      "creditHours": 3,
+      "department": "Data Science",
+      "lecturerId": "lecturer-2"
+    }
+  ],
+  "qrSessions": [],
+  "attendance": [
+    {
+      "id": "att-1",
+      "studentId": "student-1",
+      "studentName": "Abena Osei",
+      "studentOLId": "OL-2026-001",
+      "courseId": "course-1",
+      "courseCode": "OL-SD304",
+      "courseTitle": "Advanced React & Node.js Development",
+      "lecturerId": "lecturer-1",
+      "date": "2026-07-15",
+      "time": "09:05:12",
+      "status": "present",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-2",
+      "studentId": "student-3",
+      "studentName": "Esi Ankrah",
+      "studentOLId": "OL-2026-003",
+      "courseId": "course-1",
+      "courseCode": "OL-SD304",
+      "courseTitle": "Advanced React & Node.js Development",
+      "lecturerId": "lecturer-1",
+      "date": "2026-07-15",
+      "time": "09:02:44",
+      "status": "present",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-3",
+      "studentId": "student-1",
+      "studentName": "Abena Osei",
+      "studentOLId": "OL-2026-001",
+      "courseId": "course-2",
+      "courseCode": "OL-NE201",
+      "courseTitle": "Network Security & Administration",
+      "lecturerId": "lecturer-1",
+      "date": "2026-07-16",
+      "time": "11:15:22",
+      "status": "late",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-4",
+      "studentId": "student-2",
+      "studentName": "Kwame Boateng",
+      "studentOLId": "OL-2026-002",
+      "courseId": "course-2",
+      "courseCode": "OL-NE201",
+      "courseTitle": "Network Security & Administration",
+      "lecturerId": "lecturer-1",
+      "date": "2026-07-16",
+      "time": "11:04:10",
+      "status": "present",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-5",
+      "studentId": "student-1",
+      "studentName": "Abena Osei",
+      "studentOLId": "OL-2026-001",
+      "courseId": "course-3",
+      "courseCode": "OL-DS102",
+      "courseTitle": "Data Analytics with Python",
+      "lecturerId": "lecturer-2",
+      "date": "2026-07-17",
+      "time": "14:01:05",
+      "status": "present",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-6",
+      "studentId": "student-2",
+      "studentName": "Kwame Boateng",
+      "studentOLId": "OL-2026-002",
+      "courseId": "course-3",
+      "courseCode": "OL-DS102",
+      "courseTitle": "Data Analytics with Python",
+      "lecturerId": "lecturer-2",
+      "date": "2026-07-17",
+      "time": "14:18:50",
+      "status": "late",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-7",
+      "studentId": "student-3",
+      "studentName": "Esi Ankrah",
+      "studentOLId": "OL-2026-003",
+      "courseId": "course-3",
+      "courseCode": "OL-DS102",
+      "courseTitle": "Data Analytics with Python",
+      "lecturerId": "lecturer-2",
+      "date": "2026-07-17",
+      "time": "14:00:32",
+      "status": "present",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-8",
+      "studentId": "student-1",
+      "studentName": "Abena Osei",
+      "studentOLId": "OL-2026-001",
+      "courseId": "course-1",
+      "courseCode": "OL-SD304",
+      "courseTitle": "Advanced React & Node.js Development",
+      "lecturerId": "lecturer-1",
+      "date": "2026-07-18",
+      "time": "09:03:15",
+      "status": "present",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-9",
+      "studentId": "student-3",
+      "studentName": "Esi Ankrah",
+      "studentOLId": "OL-2026-003",
+      "courseId": "course-1",
+      "courseCode": "OL-SD304",
+      "courseTitle": "Advanced React & Node.js Development",
+      "lecturerId": "lecturer-1",
+      "date": "2026-07-18",
+      "time": "09:01:20",
+      "status": "present",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-10",
+      "studentId": "student-2",
+      "studentName": "Kwame Boateng",
+      "studentOLId": "OL-2026-002",
+      "courseId": "course-2",
+      "courseCode": "OL-NE201",
+      "courseTitle": "Network Security & Administration",
+      "lecturerId": "lecturer-1",
+      "date": "2026-07-19",
+      "time": "11:05:44",
+      "status": "present",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-11",
+      "studentId": "student-1",
+      "studentName": "Abena Osei",
+      "studentOLId": "OL-2026-001",
+      "courseId": "course-2",
+      "courseCode": "OL-NE201",
+      "courseTitle": "Network Security & Administration",
+      "lecturerId": "lecturer-1",
+      "date": "2026-07-19",
+      "time": "",
+      "status": "absent",
+      "markedBy": "lecturer"
+    },
+    {
+      "id": "att-12",
+      "studentId": "student-1",
+      "studentName": "Abena Osei",
+      "studentOLId": "OL-2026-001",
+      "courseId": "course-3",
+      "courseCode": "OL-DS102",
+      "courseTitle": "Data Analytics with Python",
+      "lecturerId": "lecturer-2",
+      "date": "2026-07-20",
+      "time": "14:02:11",
+      "status": "present",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-13",
+      "studentId": "student-2",
+      "studentName": "Kwame Boateng",
+      "studentOLId": "OL-2026-002",
+      "courseId": "course-3",
+      "courseCode": "OL-DS102",
+      "courseTitle": "Data Analytics with Python",
+      "lecturerId": "lecturer-2",
+      "date": "2026-07-20",
+      "time": "14:21:05",
+      "status": "late",
+      "markedBy": "qr"
+    },
+    {
+      "id": "att-14",
+      "studentId": "student-3",
+      "studentName": "Esi Ankrah",
+      "studentOLId": "OL-2026-003",
+      "courseId": "course-3",
+      "courseCode": "OL-DS102",
+      "courseTitle": "Data Analytics with Python",
+      "lecturerId": "lecturer-2",
+      "date": "2026-07-20",
+      "time": "",
+      "status": "excused",
+      "markedBy": "lecturer",
+      "notes": "Medical checkup appointment"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "not-1",
+      "userId": "student-user-1",
+      "title": "Low Attendance Alert",
+      "message": "Your attendance for Network Security & Administration is at 60%, which is below the required 75%. Please attend subsequent classes to avoid being barred from exams.",
+      "read": false,
+      "createdAt": "2026-07-20T13:12:33.632Z"
+    },
+    {
+      "id": "not-2",
+      "userId": "lecturer-user-1",
+      "title": "New Class Schedule",
+      "message": "You have been assigned Advanced React & Node.js Development for this semester.",
+      "read": true,
+      "createdAt": "2026-07-19T01:12:33.632Z"
+    }
+  ]
+}

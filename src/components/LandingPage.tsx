@@ -66,7 +66,15 @@ export default function LandingPage({ onLoginSuccess }: LandingPageProps) {
         body: JSON.stringify({ email, password })
       });
 
-      const data = await response.json();
+      let data;
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        throw new Error(`Server returned an invalid HTML/text response (status ${response.status}). If you are running inside a sandboxed iframe, try using 'Open App in New Tab' to bypass iframe security. Details: ${text.substring(0, 80)}...`);
+      }
+
       if (!response.ok) {
         throw new Error(data.error || 'Login failed');
       }
@@ -104,7 +112,15 @@ export default function LandingPage({ onLoginSuccess }: LandingPageProps) {
         })
       });
 
-      const data = await response.json();
+      let data;
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+        data = await response.json();
+      } else {
+        const text = await response.text();
+        throw new Error(`Server returned an invalid HTML/text response (status ${response.status}). Details: ${text.substring(0, 80)}...`);
+      }
+
       if (!response.ok) {
         throw new Error(data.error || 'Registration failed');
       }
